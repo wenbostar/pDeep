@@ -235,7 +235,7 @@ class IonLSTM:
         self.restart_session()
         init_op = tf.global_variables_initializer()
         self.sess.run(init_op)
-        self.summary_writer = tf.summary.FileWriter("../tensorboard/train", self.sess.graph)
+        self.summary_writer = tf.summary.FileWriter("./tensorboard/train", self.sess.graph)
     
     def BuildTransferModel(self, model_file):
         print("Fine-tuning pDeep model ...")
@@ -256,7 +256,7 @@ class IonLSTM:
         adam_vars = [self.GetVariableByName("beta1_power_1:0"), self.GetVariableByName("beta2_power_1:0")] + self.GetVariablesBySubstr("transfer_Adam")
         init_op = tf.variables_initializer(var_list = adam_vars, name = "transfer_init")
         self.sess.run(init_op)
-        self.summary_writer = tf.summary.FileWriter("../tensorboard/transfer_train", self.sess.graph)
+        self.summary_writer = tf.summary.FileWriter("./tensorboard/transfer_train", self.sess.graph)
         
     # def BuildTransferModel_offline(self, model_file):
         # print("pDeep knowledge transfer model ...")
