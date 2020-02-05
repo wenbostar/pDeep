@@ -8,7 +8,8 @@ import time
 import sys
 
 import model.lstm_tf as lstm
-model_folder = './tf-models/model-180921-modloss/'
+## for docker
+model_folder = '/opt/pDeep2/tf-models/model-180921-modloss/'
 model = 'pretrain-180921-modloss.ckpt'
 
 import argparse
